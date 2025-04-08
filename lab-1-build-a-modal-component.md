@@ -7,17 +7,17 @@ Our modal window shall
 - shall validate if the trip duration does not exceed a certain amount if days (for example 7)
 - inform users of obvious errors (end date before start date)
 
-![Modal](images/ws_componentsModal.png)
+<img src="images/ws_componentsModal.png" alt="Modal" style="max-width: 400px; height: auto;">
 
 Before we start, go to **Setting** and then **Updates** and turn on **Modern controls and themes**
 
-![modern controls](images/ws_componentModern.png)
+<img src="images/ws_componentModern.png" alt="modern controls" style="max-width: 400px; height: auto;">
 
 To keep things easier in the workshop, we will build this component in the app.
 
 * On a new screen in the tree view, select the **Components** tab
 
-![components](images/ws_componentstab.png)
+<img src="images/ws_componentstab.png" alt="components" style="max-width: 400px; height: auto;">
 
 ## Component Basics
 
@@ -47,24 +47,24 @@ For the **Fill** property, we will make it as flexible as possible. We can achie
 * Fill in the fields for Display Name `backgroundFill` and Description and for **Data type** select `Color`
 * Select **Create**
 
-![custom property](images/ws_componentsProperty.png)
+<img src="images/ws_componentsProperty.png" alt="custom property" style="max-width: 400px; height: auto;">
 
 Now select **backgroundFill** and define a default value
 
-![backgroundFill](images/ws_componentsbackgroundFill.png)
+<img src="images/ws_componentsbackgroundFill.png" alt="backgroundFill" style="max-width: 400px; height: auto;">
 
 You can use any value, but we'd recommend to not use white so that you can spot a difference 💡
 
 Now we need to assign the `backgroundFill` to the **Fill** of our component. All custom properties of this component are accessible via dot notation: 
 
-![Fill](images/ws_componentsFill.png)
+<img src="images/ws_componentsFill.png" alt="Fill" style="max-width: 400px; height: auto;">
 
 Let's try this out in our app:
 
 * Select **Screens** again in the Tree view
 * Select **Insert**
 
-![Insert](images/ws_componentsinsert.png)
+<img src="images/ws_componentsinsert.png" alt="Insert" style="max-width: 400px; height: auto;">
 
 This way you can reuse the component even if the colors (or other values of the component) change across apps.
 
@@ -90,7 +90,7 @@ Now that we know about custom (input) properties, let's use this knowledge to bu
   * Set the **Width** to `24`
   * Set the **Type** to `Subtle`
   * Set the **Align in container** to `End`
-![icon](images/ws_componentsicon.png)
+<img src="images/ws_componentsicon.png" alt="icon" style="max-width: 400px; height: auto;">
   
 We will later assign functionality to this button.
 
@@ -99,13 +99,13 @@ We will later assign functionality to this button.
 * Select the component again and create a new custom property for the Text of this textlabel
 * Like before, fill in the form, make sure you select the right **Data type** (in this case it should stay with the default value `Text`) and select **Create**
 
-![Textproperty](images/ws_componentsText.png)
+<img src="images/ws_componentsText.png" alt="Textproperty" style="max-width: 400px; height: auto;">
 
 Now select the **headerText** property and assign a default value like `Confirmation` or even `Lorem Ipsum` by selecting **Screens** again in the Tree view
 
 We will now assign the `headerText` to the **Text** of the label:
 
-![assign the property](images/ws_componentsTextassign.png)
+<img src="images/ws_componentsTextassign.png" alt="assign the property" style="max-width: 400px; height: auto;">
 
 Now we can assign new values to our custom property in each and every single app we use this component.
 
@@ -133,15 +133,15 @@ Insert a checkbox, rename it to `chk_confirm`, create a custom property for the 
 
 We will need to have one property for an onCheck event and another one for the onUncheck event. 
 
-![event property](images/ws_componentsevent.png)
+<img src="images/ws_componentsevent.png" alt="event property" style="max-width: 400px; height: auto;">
 
 After creating the property, we will now assign this event to the **Oncheck** (capital O, this means its a built in property) property of our checkbox
 
-![onCheck](images/ws_componentonCheck.png)
+<img src="images/ws_componentonCheck.png" alt="onCheck" style="max-width: 400px; height: auto;">
 
 In our component instance (change to **Screens** again) you can now assign a variable like `isChecked` to the **onUncheck** and **onCheck** properties of the component:
 
-![assign the property](images/ws_componentseventinstance.png)
+<img src="images/ws_componentseventinstance.png" alt="assign the property" style="max-width: 400px; height: auto;">
 
 Accordlingly, for the **onCheck** property, you'd do `Set(isChecked, true)`
 
