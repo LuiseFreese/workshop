@@ -25,7 +25,8 @@
 | Repository aufsetzen                        | Luise          |
 | Präsentation vorbereiten                    | Luise          |
 
-## Component
+## Contents
 
-* Use Case: you sure?! // Data validation // Catching errors
+* [Learn: What are components and why would you want them](learn-1-what-are-components.md)
+* [Lab: How to build a modal component](lab-1-build-a-modal-component.md)
 
