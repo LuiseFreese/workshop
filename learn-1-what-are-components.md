@@ -13,4 +13,7 @@ Using component libraries helps standardize development across projects and enab
 
 ## Resources
 
-//TODO
+
+* [Canvas component overview](https://learn.microsoft.com/power-apps/maker/canvas-apps/create-component)
+* [Power Apps im M365Princess.com blog](https://www.m365princess.com/categories/power-apps/)
+* [Swipe Right Component on YT](https://youtu.be/5cGkNOekrZA?si=o6cYaUAPgsOgkvkQ)
