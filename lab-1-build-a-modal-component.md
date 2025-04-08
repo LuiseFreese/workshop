@@ -9,8 +9,6 @@ Our modal window shall
 
 ![Modal](images/ws_componentsModal.png)
 
-//TODO Luise change size to by App.Size and blur out background
-
 Before we start, go to **Setting** and then **Updates** and turn on **Modern controls and themes**
 
 ![modern controls](images/ws_componentModern.png)
@@ -38,12 +36,12 @@ We want the size of the component to adjust to our screen, therefore can't give 
 
 Instead, we do:
 
-* **Width**: `App.Width/2`
-* **Height**: `App.Height/2`
+* **Width**: `App.Width`
+* **Height**: `App.Height`
 
 ### Background
 
-For the **Fill** property, we will make it as flexible as possible. We can achieve this by giving the component a custom property `backgroundFill`. Later on in the app, we can then assign a value to this custom property. This means, that for every app, the same modal can be used but will adhere to color schemes of different apps. 
+For the **Fill** property, we will make it as flexible as possible. We can achieve this by giving the component a custom property `backgroundFill`. Later on in the app, we can then assign a value to this custom property. This means, that for every app, the same modal can be used but will adhere to color schemes of different apps.
 
 * Select **New custom property**
 * Fill in the fields for Display Name `backgroundFill` and Description and for **Data type** select `Color`
@@ -67,10 +65,6 @@ Let's try this out in our app:
 * Select **Insert**
 
 ![Insert](images/ws_componentsinsert.png)
-
-you should see something like this: A square, half of the size of your screen in grey. Now select the component in the Tree view and in the **Custom properties** on the right hand side, select the colorpicker and change the color.
-
-![change Fill](images/ws_componentschengefill.png)
 
 This way you can reuse the component even if the colors (or other values of the component) change across apps.
 
@@ -193,7 +187,7 @@ Extend the code above for the **onSubmit** property by this line:
 
 In the component instance (change to **Screens** again), select the component's **Visible** property and change it to `isShowModal`
 
-//TODO Robin show modal with `Set(isShowModal, true)`in the app under a condition... for example end date fore start date or trip durateion > 7 days. In both cases, align the texts of the modal with the custom properties. 
+//TODO Robin show modal with `Set(isShowModal, true)`in the app under a condition... for example end date fore start date or trip durateion > 7 days. In both cases, align the texts of the modal with the custom properties.
 
 
 ##### Oh no button
