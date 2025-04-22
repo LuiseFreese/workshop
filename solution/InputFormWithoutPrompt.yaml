@@ -1,0 +1,158 @@
+- con_overlayReceiptFake:
+    Control: GroupContainer@1.3.0
+    Variant: AutoLayout
+    Properties:
+      Fill: =RGBA(0, 0, 0, 0.2)
+      Height: =Parent.Height
+      LayoutDirection: =LayoutDirection.Vertical
+      LayoutJustifyContent: =LayoutJustifyContent.Center
+      Width: =Parent.Width
+    Children:
+      - con_addReceipt_2:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.Center
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =480
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =5
+            PaddingBottom: =12
+            PaddingLeft: =12
+            PaddingRight: =12
+            PaddingTop: =12
+            Width: =250
+          Children:
+            - Spinner1_2:
+                Control: Spinner@1.4.6
+                Properties:
+                  AlignInContainer: =AlignInContainer.Stretch
+                  Height: =235
+                  Label: ="Our AI overlords are processing the image"
+                  LabelPosition: ='Spinner.LabelPosition'.Below
+                  SpinnerSize: ='Spinner.SpinnerSize'.Large
+                  Visible: =gblLoading
+            - ico_closeReceipt_2:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  AlignInContainer: =AlignInContainer.End
+                  Height: =32
+                  Icon: =Icon.Cancel
+                  OnSelect: =Set(gblShowReceipt, false)
+                  Width: =32
+            - TextCanvas2_2:
+                Control: Text@0.0.50
+                Properties:
+                  Text: ="Upload receipt"
+                  Weight: ='TextCanvas.Weight'.Semibold
+            - con_UploadImage_2:
+                Control: GroupContainer@1.3.0
+                Variant: ManualLayout
+                Properties:
+                  FillPortions: =0
+                  Height: =100
+                  LayoutMinWidth: =150
+                Children:
+                  - UploadedImage1_2:
+                      Control: Image@2.2.3
+                      Properties:
+                        Height: =med_addMedia_2.Height
+                        Image: =If(IsBlank(med_addMedia_2.Media), SampleImage, med_addMedia_2.Media)
+                        ImagePosition: =ImagePosition.Fill
+                        Width: =med_addMedia_2.Width
+                        X: =med_addMedia_2.X
+                        Y: =med_addMedia_2.Y
+                  - med_addMedia_2:
+                      Control: AddMedia@2.2.1
+                      Properties:
+                        Height: =Parent.Height
+                        OnChange: |-
+                          =Set(gblLoading, true);
+
+                          Set(gblReceiptData, {company: "Color Cloud", amount: 123, currency: "RAI", date: Text(Today(), "yyyy-mm-dd")});
+
+                          Set(gblLoading, false);
+                        Size: =12
+                        Width: =Parent.Width
+            - con_receiptData_2:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  Height: =235
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutMinWidth: =150
+                  PaddingTop: =10
+                  Visible: =!gblLoading
+                Children:
+                  - TextCanvas3_8:
+                      Control: Text@0.0.50
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Height: =20
+                        Text: ="Company"
+                  - txt_company_2:
+                      Control: TextInput@0.0.53
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        LayoutMinWidth: =100
+                        Value: =gblReceiptData.company
+                  - TextCanvas3_9:
+                      Control: Text@0.0.50
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Height: =20
+                        Text: ="Amount"
+                  - num_amount_2:
+                      Control: NumberInput@2.9.12
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        LayoutMinWidth: =100
+                        Precision: ='NumberInput.Precision'.'2'
+                        Value: =gblReceiptData.amount
+                  - TextCanvas3_10:
+                      Control: Text@0.0.50
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Height: =20
+                        Text: ="Currency"
+                  - txt_currency_2:
+                      Control: TextInput@0.0.53
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        LayoutMinWidth: =100
+                        Value: =gblReceiptData.currency
+                  - TextCanvas3_11:
+                      Control: Text@0.0.50
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Height: =20
+                        Text: ="Date"
+                  - dtp_date_2:
+                      Control: DatePicker@0.0.42
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        LayoutMinWidth: =100
+                        SelectedDate: =gblReceiptData.date
+            - ButtonCanvas1_2:
+                Control: Button@0.0.44
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  DisplayMode: =If(gblLoading, DisplayMode.Disabled, DisplayMode.Edit)
+                  Icon: ="Save"
+                  OnSelect: |-
+                    =Collect(colReceipts,
+                        {
+                            tripid: gblTrip,
+                            amount: num_amount_2.Value, 
+                            company: txt_company_2.Value, 
+                            currency: txt_currency_2.Value, 
+                            date: dtp_date_2.SelectedDate 
+                        }
+                    );
+
+                    Notify("Saved new receipt");
+                    Set(gblShowReceipt, false)
+                  Text: ="Save"

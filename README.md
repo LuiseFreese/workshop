@@ -26,3 +26,6 @@ Let's innovate, collaborate, and create together!
 * [Learn: What are components and why would you want them](learn-1-what-are-components.md)
 * [Lab: How to build a modal component](lab-3-build-a-modal-component.md)
 
+## Complete Solution
+Here is the solution file that includes the AI prompt as well as the canvas app with the finished solution from the 3 labs.
+[Download Solution](solution/AIAppWorkshopDemo_1_0_0_1.zip)
