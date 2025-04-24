@@ -1,0 +1,63 @@
+- Container1:
+    Control: GroupContainer@1.3.0
+    Variant: AutoLayout
+    Properties:
+      DropShadow: =DropShadow.None
+      Height: =Parent.Height
+      LayoutAlignItems: =LayoutAlignItems.Center
+      LayoutDirection: =LayoutDirection.Vertical
+      LayoutJustifyContent: =LayoutJustifyContent.Center
+      Width: =Parent.Width
+    Children:
+      - Container2:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =btn_accept.Y+btn_accept.Height+12
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =5
+            PaddingBottom: =8
+            PaddingLeft: =8
+            PaddingRight: =8
+            PaddingTop: =8
+            Width: =cmp_modal.ModalWidth
+          Children:
+            - btn_close:
+                Control: Button@0.0.44
+                Properties:
+                  AlignInContainer: =AlignInContainer.End
+                  Appearance: ='ButtonCanvas.Appearance'.Subtle
+                  Icon: ="Dismiss"
+                  OnSelect: =cmp_modal.AbortEvent()
+                  Text: =
+                  Width: =32
+            - TextCanvas4:
+                Control: Text@0.0.50
+                Properties:
+                  AlignInContainer: =AlignInContainer.Stretch
+                  AutoHeight: =true
+                  Text: =cmp_modal.ModalHeader
+                  Visible: =!IsBlank(cmp_modal.ModalHeader)
+                  Weight: ='TextCanvas.Weight'.Semibold
+            - TextCanvas5:
+                Control: Text@0.0.50
+                Properties:
+                  AlignInContainer: =AlignInContainer.Stretch
+                  AutoHeight: =true
+                  Text: =cmp_modal.ModalText
+            - TextCanvas6:
+                Control: Text@0.0.50
+                Properties:
+                  Height: =10
+                  Text: =
+            - btn_accept:
+                Control: Button@0.0.44
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  Icon: =cmp_modal.ButtonIcon
+                  OnSelect: =cmp_modal.SubmitEvent()
+                  Text: =cmp_modal.ButtonText
+                  Width: =150
