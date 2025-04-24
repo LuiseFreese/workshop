@@ -2,208 +2,263 @@
 
 ## 📝 Mainquest
 
-Our modal window shall
+We want to create an app that works on phone AND desktop while reusing most of the UI for both systems. We will learn how to use containers as well as the **Size** property to achieve this.
 
-- shall validate if the trip duration does not exceed a certain amount if days (for example 7)
-- inform users of obvious errors (end date before start date)
+### Demo
 
-<img src="images/ws_componentsModal.png" alt="Modal" style="max-width: 400px; height: auto;">
+This is a quick demo of both systems.
 
-Before we start, go to **Setting** and then **Updates** and turn on **Modern controls and themes**
+<img src="images/2_demo.gif" alt="components" style="max-width: 700px; height: auto;">
 
-<img src="images/ws_componentModern.png" alt="modern controls" style="max-width: 400px; height: auto;">
+As we can see the header, the modal from lab 1 as well as the whole receipt section is reused. For selecting a trip we switch between a gallery on the left, to a dropdown on top.
 
-To keep things easier in the workshop, we will build this component in the app.
+### Demo Data
 
-* On a new screen in the tree view, select the **Components** tab
-
-<img src="images/ws_componentstab.png" alt="components" style="max-width: 400px; height: auto;">
-
-## Component Basics
-
-Let's first take care of name, size and background of the component
-
-### Name
-
-* Select **+New component**
-* Select  **...**
-* Select **Rename**
-* Rename to `cmp_modal`
-
-### Size
-
-We want the size of the component to adjust to our screen, therefore can't give it absolute values.
-
-Instead, we do:
-
-* **Width**: `App.Width`
-* **Height**: `App.Height`
-
-### Background
-
-For the **Fill** property, we will make it as flexible as possible. We can achieve this by giving the component a custom property `backgroundFill`. Later on in the app, we can then assign a value to this custom property. This means, that for every app, the same modal can be used but will adhere to color schemes of different apps.
-
-* Select **New custom property**
-* Fill in the fields for Display Name `backgroundFill` and Description and for **Data type** select `Color`
-* Select **Create**
-
-<img src="images/ws_componentsProperty.png" alt="custom property" style="max-width: 400px; height: auto;">
-
-Now select **backgroundFill** and define a default value
-
-<img src="images/ws_componentsbackgroundFill.png" alt="backgroundFill" style="max-width: 400px; height: auto;">
-
-You can use any value, but we'd recommend to not use white so that you can spot a difference 💡
-
-Now we need to assign the `backgroundFill` to the **Fill** of our component. All custom properties of this component are accessible via dot notation: 
-
-<img src="images/ws_componentsFill.png" alt="Fill" style="max-width: 400px; height: auto;">
-
-Let's try this out in our app:
-
-* Select **Screens** again in the Tree view
-* Select **Insert**
-
-<img src="images/ws_componentsinsert.png" alt="Insert" style="max-width: 400px; height: auto;">
-
-This way you can reuse the component even if the colors (or other values of the component) change across apps.
-
-Now that we know about custom (input) properties, let's use this knowledge to build the modal. Change back to the component and insert
-
-
-## Add controls to the component
-
-* a horizontal container
-  * **X**: `0`
-  * **Y**: `0`
-  * **Width**: `Parent.Width`
-  * **Height**: `Parent.Height`
-  * **Gap**: `20`
-  * **Padding** `20` (Top, Right, Bottom, Left)
-
-* Insert a **Button** control
-  * rename to `btn_dismiss`
-  * for the **Icon** select `Dismiss`
-  * Change the **Layout** to be  `Icon Only` (Icons themselves without being a button are not interactive 💡)
-  * Set the **Text** to `Dismiss`
-  * Set the **AccessibleLabel** to `Self.Text` (that is usually a good practice, because with Buttons, Text commonly changes throughout a project, this way the AccessibleLabel represents what the button says)
-  * Set the **Width** to `24`
-  * Set the **Type** to `Subtle`
-  * Set the **Align in container** to `End`
-<img src="images/ws_componentsicon.png" alt="icon" style="max-width: 400px; height: auto;">
-  
-We will later assign functionality to this button.
-
-* Insert a new **Text** control in the container
-* Rename it to be `lbl_header`
-* Select the component again and create a new custom property for the Text of this textlabel
-* Like before, fill in the form, make sure you select the right **Data type** (in this case it should stay with the default value `Text`) and select **Create**
-
-<img src="images/ws_componentsText.png" alt="Textproperty" style="max-width: 400px; height: auto;">
-
-Now select the **headerText** property and assign a default value like `Confirmation` or even `Lorem Ipsum` by selecting **Screens** again in the Tree view
-
-We will now assign the `headerText` to the **Text** of the label:
-
-<img src="images/ws_componentsTextassign.png" alt="assign the property" style="max-width: 400px; height: auto;">
-
-Now we can assign new values to our custom property in each and every single app we use this component.
-
-### 🦄 Side Quest
-
-*only do the side quest if you have time to do so*
-
-Think about other custom input properties you could create and assign and which default value you'd set. For example, Font, Font size, Font Weight. Feel free to create these and more!
-
-### Add even more controls
-
-We now want to add even more controls:
-
-* A text for the body
-* A Checkbox to confirm something
-
-#### Label for the body
-
-Insert the label, change its name to `lbl_body` and create a custom property in the component. Then again assign a default value to the property
-
-
-#### Checkmark
-
-Insert a checkbox, rename it to `chk_confirm`, create a custom property for the text next to the checkbox. Then again assign a default value to the property. After we handled the text next to the checkbox, lets tackle the functionality of the checkbox. What we want is, that when the user confirms something by checking the box, we set a variable or similar. To do that, we need to create another custom property, but unlike the last time, we can't do this with a data input property, but with an  **Event** property type.
-
-We will need to have one property for an onCheck event and another one for the onUncheck event. 
-
-<img src="images/ws_componentsevent.png" alt="event property" style="max-width: 400px; height: auto;">
-
-After creating the property, we will now assign this event to the **Oncheck** (capital O, this means its a built in property) property of our checkbox
-
-<img src="images/ws_componentonCheck.png" alt="onCheck" style="max-width: 400px; height: auto;">
-
-In our component instance (change to **Screens** again) you can now assign a variable like `isChecked` to the **onUncheck** and **onCheck** properties of the component:
-
-<img src="images/ws_componentseventinstance.png" alt="assign the property" style="max-width: 400px; height: auto;">
-
-Accordlingly, for the **onCheck** property, you'd do `Set(isChecked, true)`
-
-Now, whenever we have a check or uncheck event in the component instance, we can use this value (`true` or `false`) for further advancements, for example: toggle the **Displaymode** property of a button based on that value.
-
-Let's do this!
-
-#### 2 buttons: oh no and submit
-
-We now want two buttons, one to go back and close the modal, the other one to submit the data after confirming.
-
-* Place both buttons into a horizontal container with a gap of `20`
-
-##### submit button
-
-* change the **Text** property to `submit`
-* set the **Displaymode** to `If(chk_confirm.Checked, DisplayMode.Edit, DisplayMode.Disabled)` - this means that if the checkbox isn't checked, you can't select the button
-* Create a custom property of type **Event** for what shall happen when the user wants to create the trip. Call it `onSubmit`. We don't need to specify the return data type
-* In the **onSelect** property of the `btn_submit`, put `cmp_modal.onSubmit()` - if you wonder what are the `()` for - we could pass in parameters in other usecases, here its not neccessary
-* Now in your component instance (change to **Screens**) select the **onSubmit** property and set it to 
+Let's start with some demo data to play around for the trips and receipts. Optimally we would store them in Dataverse, but for this workshop we won't focus on that part. We will just create some local data in the **OnStart** property of the App:
 
 ```
-
 ClearCollect(
     colTrips,
-    {
-        id: GUID(),
-        name: "Color CLoud Hamburg",
-        start: Today(),
-        end: Today() + 1
-    }
+    {id: GUID(), name: "London", start: Today()-50, end: Today()-45},
+    {id: GUID(), name: "Buenos Aires", start: Today()-30, end: Today()-25},
+    {id: GUID(), name: "New York", start: Today()-10, end: Today()-7},
+    {id: GUID(), name: "Color Cloud Hamburg", start: Today(), end: Today()+1}
 );
 
+ClearCollect(
+    colReceipts,
+    // Trip 1: London
+    {
+        date: Today()-50,
+        amount: 120.00,
+        currency: "GBP",
+        category: "travel",
+        tripid: LookUp(colTrips, name = "London").id,
+        company: "Airline Co."
+    },
+    {
+        date: Today()-50,
+        amount: 45.50,
+        currency: "GBP",
+        category: "food",
+        tripid: LookUp(colTrips, name = "London").id,
+        company: "Restaurant A"
+    },
+    {
+        date: Today()-50,
+        amount: 200.75,
+        currency: "GBP",
+        category: "accommodation",
+        tripid: LookUp(colTrips, name = "London").id,
+        company: "Hotel B"
+    },
+    {
+        date: Today()-50,
+        amount: 30.00,
+        currency: "GBP",
+        category: "miscellaneous",
+        tripid: LookUp(colTrips, name = "London").id,
+        company: "Store C"
+    },
+    // Trip 2: Buenos Aires
+    {
+        date: Today()-29,
+        amount: 150.00,
+        currency: "ARS",
+        category: "travel",
+        tripid: LookUp(colTrips, name = "Buenos Aires").id,
+        company: "Train Co."
+    },
+    {
+        date: Today()-29,
+        amount: 60.00,
+        currency: "ARS",
+        category: "food",
+        tripid: LookUp(colTrips, name = "Buenos Aires").id,
+        company: "Cafe D"
+    },
+    {
+        date: Today()-29,
+        amount: 220.00,
+        currency: "ARS",
+        category: "accommodation",
+        tripid: LookUp(colTrips, name = "Buenos Aires").id,
+        company: "Hotel E"
+    },
+    {
+        date: Today()-29,
+        amount: 40.00,
+        currency: "ARS",
+        category: "miscellaneous",
+        tripid: LookUp(colTrips, name = "Buenos Aires").id,
+        company: "Store F"
+    },
+    // Trip 3: New York
+    {
+        date: Today()-9,
+        amount: 180.00,
+        currency: "USD",
+        category: "travel",
+        tripid: LookUp(colTrips, name = "New York").id,
+        company: "Bus Co."
+    },
+    {
+        date: Today()-9,
+        amount: 55.00,
+        currency: "USD",
+        category: "food",
+        tripid: LookUp(colTrips, name = "New York").id,
+        company: "Restaurant G"
+    },
+    {
+        date: Today()-9,
+        amount: 250.00,
+        currency: "USD",
+        category: "accommodation",
+        tripid: LookUp(colTrips, name = "New York").id,
+        company: "Hotel H"
+    },
+    {
+        date: Today()-9,
+        amount: 35.00,
+        currency: "USD",
+        category: "miscellaneous",
+        tripid: LookUp(colTrips, name = "New York").id,
+        company: "Store I"
+    },
+    // Trip 4: Color Cloud Hamburg
+    {
+        date: Today(),
+        amount: 170.00,
+        currency: "EUR",
+        category: "travel",
+        tripid: LookUp(colTrips, name = "Color Cloud Hamburg").id,
+        company: "Airline J"
+    },
+    {
+        date: Today(),
+        amount: 65.00,
+        currency: "EUR",
+        category: "food",
+        tripid: LookUp(colTrips, name = "Color Cloud Hamburg").id,
+        company: "Restaurant K"
+    },
+    {
+        date: Today(),
+        amount: 230.00,
+        currency: "EUR",
+        category: "accommodation",
+        tripid: LookUp(colTrips, name = "Color Cloud Hamburg").id,
+        company: "Hotel L"
+    }
+);
 ```
 
-//TODO change to reference control names for name, start and end date from Robin
-
-What we also want is then to make the modal disappear. We do this by toggling a variable on **Visible** property of the component.
-
-Extend the code above for the **onSubmit** property by this line:
-
-`Set(isShowModal, false)`
-
-In the component instance (change to **Screens** again), select the component's **Visible** property and change it to `isShowModal`
-
-//TODO Robin show modal with `Set(isShowModal, true)`in the app under a condition... for example end date fore start date or trip durateion > 7 days. In both cases, align the texts of the modal with the custom properties.
+You can now use **colTrips** and **colReceipts** as demo data and patch new receipts into that collection.
 
 
-##### Oh no button
+### Container
 
+Let's make a first sketch how we will set up the screen.
 
-The oh no button shall close the modal. THis means, we need to create *another* **Event** type property in the component `onClose`.
+<img src="images/2_layout.png" alt="components" style="max-width: 700px; height: auto;">
 
-* set the **OnSelect** to `cmp_modal.onClose`
-* Change back to **Screens**
-* In the component instance, set the **onClose** property to `Set(isShowModal, false)` (remember, this makes our modal disappear)
+We can already see, that we will need a lot of containers and will nest up to 3 layers of containers at one point. When we create containers, we work from the outside to the inside.
 
-##### Dismiss icon button
+For every container we need to determine wether it will be a horizontal or a vertical container. We have to see how the containers in the next layer are stacked to do that.
 
-Remember our dismiss icon (which actually is a button?) We will assign the same event to it:
+* the outer container has to be vertical, because the header and the green containers are stacked vertically.
+* the lower green container has to be horizontal, because the purple containers are stacked horizontally
+* the purple ones will be vertical containers (like most containers that contain the actual content)
 
-* Change back to **Components** and select the `btn_dismiss`
-* In the **OnSelect**, put `cmp_modal.onClose()`
+Make sure to use the correct fill colors and drop shadows in the respective containers.
 
-This as well will call the event that will then set the `isShowModal` variable to false.
+You should end up with a screen that looks like this:
+
+<img src="images/2_container.png" alt="components" style="max-width: 700px; height: auto;">
+
+### Responsive depending on Screen Size
+
+We will be using the Screen Size properties together with the Breakpoints property to switch the look of the app depending on the device that is used.
+
+We want to display the dropdown, when the Screen Width is smaller than 450 pixels and the gallery on the left, when it is larger than that.
+
+In the tree view click on **App** and change the **SizeBreakpoints** property to `[450]`. This means, that we will only have one breakpoint at 450 pixels.
+
+<img src="images/2_breakpoints.png" alt="components" style="max-width: 400px; height: auto;">
+
+We can now use the simple formulas `Screenname.Size = 1` and `Screenname.Size > 1` to determine which screen size the current user has.
+
+Let's apply them to the respective **Visible** properties of the 2 containers that we want to switch depending on the size.
+
+<img src="images/2_visible.png" alt="components" style="max-width: 700px; height: auto;">
+
+This is already it! We have succesfully created a responsive screen design 🎉
+
+You can also copy&paste the yaml-code from [this file](solution/ScreenLayout.yaml) which contains the whole code up to this point.
+
+### Fill the screen
+
+Now bring everything together and fill the screen to your liking and add the modal from lab 1.
+
+Here are some hints and key points.
+
+If you want to take a peak at the complete solution, you can download and install it from [this file](solution/AIAppWorkshopDemo_1_0_0_1.zip).
+
+#### Modern Controls
+
+<img src="images/2_modern.png" alt="components" style="max-width: 400px; height: auto;">
+
+#### Load the selected trip into a variable
+
+<img src="images/2_selecttrip.png" alt="components" style="max-width: 400px; height: auto;">
+
+#### Make modals appear and disappear
+
+<img src="images/2_showmodal.png" alt="components" style="max-width: 400px; height: auto;">
+
+#### Dynamic Buttons in Toolbar Control
+
+```
+Filter(Table(
+    {
+        ItemKey: "new",
+        ItemDisplayName: "New",
+        ItemIconName: "Add",
+        ItemAppearance: "Primary",
+        ItemIconStyle: "Regular",
+        ItemTooltip: "Add new item",
+        visible: true
+    },
+    
+    {
+        ItemKey: "edit",
+        ItemDisplayName: "Edit",
+        ItemIconName: "Edit",
+        ItemAppearance: "Subtle",
+        ItemIconStyle: "Regular",
+        visible: CountRows(tbl_receipts.SelectedItems)=1
+    },
+    {
+        ItemKey: "delete",
+        ItemDisplayName: "Delete",
+        ItemIconName: "Delete",
+        ItemDisabled: CountRows(tbl_receipts.SelectedItems)=0,
+        ItemAppearance: "Subtle",
+        ItemIconStyle: "Filled",
+        visible: true
+    },
+    {
+        ItemKey: "info",
+        ItemDisplayName: "Info",
+        ItemIconName: "Info",
+        ItemAppearance: "Subtle",
+        ItemIconStyle: "Regular",
+        visible: true
+    }
+), visible)
+```
+
+#### Normal Containers
+
+<img src="images/2_normalcontainer.png" alt="components" style="max-width: 400px; height: auto;">

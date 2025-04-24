@@ -29,3 +29,8 @@ Let's innovate, collaborate, and create together!
 ## Complete Solution
 Here is the solution file that includes the AI prompt as well as the canvas app with the finished solution from the 3 labs.
 [Download Solution](solution/AIAppWorkshopDemo_1_0_0_1.zip)
+
+## Additional Ressources
+
+* [Presentation about Custom pages](resources/CustomPages_Presentation.pdf)
+* [Container Demo App](solution/Container Demo.msapp)
