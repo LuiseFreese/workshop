@@ -171,11 +171,16 @@ ClearCollect(
 - **Fill**: `RGBA(245, 245, 245, 1)`
 
 
+### Build the header
+
   - con_header (horizontal) (💡srsly doesn't matter as we only have 1 control in that container)
       - Header
         - **Height**: `75`
         - **Show logo**: `false`
         - **Title**: `Add Receipts`
+
+### Build the dropdown for mobile view
+
   - con_mobile (vertical)
         - **Padding**: `8`,`8`,`8`,`8`
         - **Height**: `80`
@@ -192,6 +197,9 @@ ClearCollect(
       - **DefaultSelectedItem**: `LookUp(AddColumns(colTrips, Text, $"{name} {Text(start, "dd.mm.")}-{Text(end, "dd.mm.yy")}"), id=gblTrip)`
       - **AlignInContainer**: `AlignInContainer.Stretch`
       - Edit Fields, Add **Text**
+
+### Build the main part
+
 - con_bottom (horizontal)
   - **Padding**: `2`,`2`,`2`,`2`
   - **LayoutAlignItems**: `LayoutAlignItems.Stretch`
@@ -296,6 +304,8 @@ Switch(
   - **DateTimeFormat**: `'PowerAppsOneGrid.DateOnlyFormat'.ShortDate`
   - **ShowFooter**: `"yes"`
 
+### Build the overlay to add new receipt via modal
+
 Above everything now at top level:
 
 - con_overlay (horizontal)
@@ -385,3 +395,5 @@ Set(
     false
 )
 ```
+
+### You made it 🦄🪄
