@@ -265,7 +265,7 @@ ClearCollect(
 ), visible)
 ```
 
-        - **OnSelect**:
+- **OnSelect**:
 
 ```powerappsfl
 Switch(
@@ -286,15 +286,15 @@ Switch(
 
 💡 Will give errors for the moment, don't worry!
 
-      - Table
-        - **Items**: `Filter(colReceipts, tripid = gblTrip)`
-        - Fields > Edit > **Add fields**: **date**, **category**, **company**, **amount** and **currency**
-        - **EnableSorting**: "yes"
-        - **EnableRangeSelection**: `'PowerAppsOneGrid.EnableRangeSelection'.Disable`
-        - **EnableMultipleSelection**: `'PowerAppsOneGrid.EnableMultipleSelection'.Enable`
-        - **AlignInContainer**: `AlignInContainer.Stretch`
-        - **DateTimeFormat**: `'PowerAppsOneGrid.DateOnlyFormat'.ShortDate`
-        - **ShowFooter**: `"yes"`
+- Table
+  - **Items**: `Filter(colReceipts, tripid = gblTrip)`
+  - Fields > Edit > **Add fields**: **date**, **category**, **company**, **amount** and **currency**
+  - **EnableSorting**: "yes"
+  - **EnableRangeSelection**: `'PowerAppsOneGrid.EnableRangeSelection'.Disable`
+  - **EnableMultipleSelection**: `'PowerAppsOneGrid.EnableMultipleSelection'.Enable`
+  - **AlignInContainer**: `AlignInContainer.Stretch`
+  - **DateTimeFormat**: `'PowerAppsOneGrid.DateOnlyFormat'.ShortDate`
+  - **ShowFooter**: `"yes"`
 
 Above everything now at top level:
 
@@ -369,7 +369,7 @@ Above everything now at top level:
             - **Onselect**:
 
 ```powerappsfl
-            Collect(
+Collect(
     colReceipts,
     {
         tripid: gblTrip,
