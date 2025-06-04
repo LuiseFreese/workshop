@@ -1,6 +1,6 @@
 # Workshop
 
-Welcome to the **Next-Gen Power Apps: Mastering Canvas Apps, Fluent UI, and GenAI** workshop! 
+Welcome to the **Next-Gen Power Apps: Mastering Canvas Apps, Fluent UI, and GenAI** workshop!
 
 In this session, we will explore the cutting-edge capabilities of Power Apps, dive into creating intuitive and responsive user interfaces with Fluent UI, and harness the power of Generative AI to supercharge your app development. Whether you're a seasoned developer or just starting your journey, this workshop is designed to equip you with the skills and insights needed to build next-generation applications.
 
@@ -18,7 +18,6 @@ Let's innovate, collaborate, and create together!
 | Plan Builder                     | 15 min   |
 | Your Topics                      | 15 min   |
 
- 
 ## Contents
 
 * [Lab: Extract data from files with AI Prompts](lab-1-extract-data-from-file.md)
@@ -27,10 +26,11 @@ Let's innovate, collaborate, and create together!
 * [Lab: How to build a modal component](lab-3-build-a-modal-component.md)
 
 ## Complete Solution
+
 Here is the solution file that includes the AI prompt as well as the canvas app with the finished solution from the 3 labs.
 [Download Solution](solution/AIAppWorkshopDemo_1_0_0_1.zip)
 
-## Additional Ressources
+## Additional Resources
 
 * [Presentation about Custom pages](resources/CustomPages_Presentation.pdf)
 * [Container Demo App](solution/Container Demo.msapp)
