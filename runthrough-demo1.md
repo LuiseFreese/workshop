@@ -170,19 +170,18 @@ ClearCollect(
 - **Dropshadow**: `Light`
 - **Fill**: `RGBA(245, 245, 245, 1)`
 
-Holds:
 
-- con_header (horizontal) (💡srsly doesn't matter as we only have 1 control in that container)
-  - Header
-    - **Height**: `75`
-    - **Show logo**: `false`
-    - **Title**: `Add Receipts`
-- con_mobile (vertical)
-  - **Padding**: `8`,`8`,`8`,`8`
-  - **Height**: `80`
-  - **Fill**: `RGBA(255, 255, 255, 1)`
-  - **Border Radius**: `8`
-  - **Visible**: `Mainscreen.Size=1` --> only visible on mobile
+  - con_header (horizontal) (💡srsly doesn't matter as we only have 1 control in that container)
+      - Header
+        - **Height**: `75`
+        - **Show logo**: `false`
+        - **Title**: `Add Receipts`
+  - con_mobile (vertical)
+        - **Padding**: `8`,`8`,`8`,`8`
+        - **Height**: `80`
+        - **Fill**: `RGBA(255, 255, 255, 1)`
+        - **Border Radius**: `8`
+        - **Visible**: `Mainscreen.Size=1` --> only visible on mobile
     - Textcanvas
       - **Text**: `Select Trip`
       - **Weight**: `'TextCanvas.Weight'.Semibold`
@@ -264,7 +263,7 @@ Holds:
         visible: true
     }
 ), visible)
-```
+    ```
 
         - **OnSelect**:
 
@@ -286,15 +285,16 @@ Switch(
 ```
 
 💡 Will give errors for the moment, don't worry!
-    - Table
-      - **Items**: `Filter(colReceipts, tripid = gblTrip)`
-      - Fields > Edit > **Add fields**: **date**, **category**, **company**, **amount** and **currency**
-      - **EnableSorting**: "yes"
-      - **EnableRangeSelection**: `'PowerAppsOneGrid.EnableRangeSelection'.Disable`
-      - **EnableMultipleSelection**: `'PowerAppsOneGrid.EnableMultipleSelection'.Enable`
-      - **AlignInContainer**: `AlignInContainer.Stretch`
-      - **DateTimeFormat**: `'PowerAppsOneGrid.DateOnlyFormat'.ShortDate`
-      - **ShowFooter**: `"yes"`
+
+      - Table
+        - **Items**: `Filter(colReceipts, tripid = gblTrip)`
+        - Fields > Edit > **Add fields**: **date**, **category**, **company**, **amount** and **currency**
+        - **EnableSorting**: "yes"
+        - **EnableRangeSelection**: `'PowerAppsOneGrid.EnableRangeSelection'.Disable`
+        - **EnableMultipleSelection**: `'PowerAppsOneGrid.EnableMultipleSelection'.Enable`
+        - **AlignInContainer**: `AlignInContainer.Stretch`
+        - **DateTimeFormat**: `'PowerAppsOneGrid.DateOnlyFormat'.ShortDate`
+        - **ShowFooter**: `"yes"`
 
 Above everything now at top level:
 
@@ -367,6 +367,7 @@ Above everything now at top level:
             - **Icon**: `Save`
             - **DisplayMode**: `If(gblLoading, DisplayMode.Disabled, DisplayMode.Edit)`
             - **Onselect**:
+
             ```powerappsfl
             Collect(
     colReceipts,
@@ -383,6 +384,4 @@ Set(
     gblShowReceipt,
     false
 )
-```
-            
-
+        ```
