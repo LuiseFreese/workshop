@@ -183,7 +183,7 @@ ClearCollect(
         - **Border Radius**: `8`
         - **Visible**: `Mainscreen.Size=1` --> only visible on mobile
     - Textcanvas
-      - **Text**: `Select Trip`
+      - **Text**: `"Select Trip"`
       - **Weight**: `'TextCanvas.Weight'.Semibold`
       - **AlignInContainer**: `Strech`
     - DropdownCanvas
@@ -225,7 +225,7 @@ ClearCollect(
         - **AlignInContainer**: `AlignInContainer.Stretch`
         - **Items**:
    
-  ```powerappsfl
+```powerappsfl
   Filter(Table(
     {
         ItemKey: "new",
@@ -263,7 +263,7 @@ ClearCollect(
         visible: true
     }
 ), visible)
-    ```
+```
 
         - **OnSelect**:
 
@@ -368,7 +368,7 @@ Above everything now at top level:
             - **DisplayMode**: `If(gblLoading, DisplayMode.Disabled, DisplayMode.Edit)`
             - **Onselect**:
 
-            ```powerappsfl
+```powerappsfl
             Collect(
     colReceipts,
     {
@@ -384,4 +384,4 @@ Set(
     gblShowReceipt,
     false
 )
-        ```
+```
