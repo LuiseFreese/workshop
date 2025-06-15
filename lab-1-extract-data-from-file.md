@@ -68,3 +68,5 @@ gblReceiptData.company
 ```
 
 If you want to take a shortcut, you can copy the yaml-code [with AI Builder](solution/InputForm.yaml) or an alternative that will generate the same format with mock data [without the AI Builder](solution/InputFormWithoutPrompt.yaml).
+
+For an even more detailed explanation of how to build the canvas app, please see the [runthrough](runthrough-demo1.md)

@@ -22,7 +22,7 @@ ClearCollect(
     {id: GUID(), name: "London", start: Today()-50, end: Today()-45},
     {id: GUID(), name: "Buenos Aires", start: Today()-30, end: Today()-25},
     {id: GUID(), name: "New York", start: Today()-10, end: Today()-7},
-    {id: GUID(), name: "Color Cloud Hamburg", start: Today(), end: Today()+1}
+    {id: GUID(), name: "EPPC25 Vienna", start: Today(), end: Today()+1}
 );
 
 ClearCollect(
@@ -126,13 +126,13 @@ ClearCollect(
         tripid: LookUp(colTrips, name = "New York").id,
         company: "Store I"
     },
-    // Trip 4: Color Cloud Hamburg
+    // Trip 4: EPPC25 Vienna
     {
         date: Today(),
         amount: 170.00,
         currency: "EUR",
         category: "travel",
-        tripid: LookUp(colTrips, name = "Color Cloud Hamburg").id,
+        tripid: LookUp(colTrips, name = "EPPC25 Vienna").id,
         company: "Airline J"
     },
     {
@@ -140,7 +140,7 @@ ClearCollect(
         amount: 65.00,
         currency: "EUR",
         category: "food",
-        tripid: LookUp(colTrips, name = "Color Cloud Hamburg").id,
+        tripid: LookUp(colTrips, name = "EPPC25 Vienna").id,
         company: "Restaurant K"
     },
     {
@@ -148,7 +148,7 @@ ClearCollect(
         amount: 230.00,
         currency: "EUR",
         category: "accommodation",
-        tripid: LookUp(colTrips, name = "Color Cloud Hamburg").id,
+        tripid: LookUp(colTrips, name = "EPPC25 Vienna").id,
         company: "Hotel L"
     }
 );

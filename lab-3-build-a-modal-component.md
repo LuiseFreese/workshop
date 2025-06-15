@@ -169,7 +169,7 @@ ClearCollect(
     colTrips,
     {
         id: GUID(),
-        name: "Color CLoud Hamburg",
+        name: "EPPC25 Vienna",
         start: Today(),
         end: Today() + 1
     }
