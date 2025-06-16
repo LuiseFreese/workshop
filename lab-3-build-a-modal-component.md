@@ -177,7 +177,6 @@ ClearCollect(
 
 ```
 
-//TODO change to reference control names for name, start and end date from Robin
 
 What we also want is then to make the modal disappear. We do this by toggling a variable on **Visible** property of the component.
 
@@ -186,8 +185,6 @@ Extend the code above for the **onSubmit** property by this line:
 `Set(isShowModal, false)`
 
 In the component instance (change to **Screens** again), select the component's **Visible** property and change it to `isShowModal`
-
-//TODO Robin show modal with `Set(isShowModal, true)`in the app under a condition... for example end date fore start date or trip durateion > 7 days. In both cases, align the texts of the modal with the custom properties.
 
 
 ##### Oh no button
