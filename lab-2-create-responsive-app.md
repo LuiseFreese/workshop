@@ -12,6 +12,8 @@ This is a quick demo of both systems.
 
 As we can see the header, the modal from lab 1 as well as the whole receipt section is reused. For selecting a trip we switch between a gallery on the left, to a dropdown on top.
 
+⚠️To enable this please go to **Settings** --> **Display** --> and then turn **Scale to fit** off. 
+
 ### Demo Data
 
 Let's start with some demo data to play around for the trips and receipts. Optimally we would store them in Dataverse, but for this workshop we won't focus on that part. We will just create some local data in the **OnStart** property of the App:
