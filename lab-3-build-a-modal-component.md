@@ -165,15 +165,8 @@ We now want two buttons, one to go back and close the modal, the other one to su
 
 ```
 
-ClearCollect(
-    colTrips,
-    {
-        id: GUID(),
-        name: "EPPC25 Vienna",
-        start: Today(),
-        end: Today() + 1
-    }
-);
+Remove(colReceipts, tbl_receipts.SelectedItems);
+Set(isShowModal, false)
 
 ```
 
