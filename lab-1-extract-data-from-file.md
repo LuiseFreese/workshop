@@ -32,7 +32,7 @@ Create a new line in the instructions and type a **/**. Select **Image or Docume
 
 <img src="images/1_dynamicImage.png" alt="components" style="max-width: 400px; height: auto;">
 
-Rename it to `receipt` and Upload a Sample File. You can either use one of your old travel receipts or download a sample from the [demodata](demodata).
+Rename it to `receipt` and Upload a Sample File. You can either use one of your old travel receipts or download a sample from the [demodata](https://github.com/LuiseFreese/workshop/tree/main/receipts).
 
 <img src="images/1_receipt.png" alt="components" style="max-width: 400px; height: auto;">
 
